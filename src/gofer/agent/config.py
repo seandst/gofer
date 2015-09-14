@@ -69,6 +69,11 @@ AGENT_SCHEMA = (
 #   authenticator
 #      The (optional) fully qualified Authenticator to be loaded from the PYTHON path.
 #
+# [pending]
+#
+#   depth
+#      The depth of the pending request queue.  Default: 10K.
+#
 # [model]
 #
 #   managed
@@ -140,7 +145,7 @@ PLUGIN_DEFAULTS = {
         'forward': ','
     },
     'pending': {
-        'depth': '100000'
+        'depth': '10000'
     },
     'model': {
         'managed': '2'
