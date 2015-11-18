@@ -18,7 +18,7 @@ from proton import SSLDomain, SSLException
 from proton.utils import BlockingConnection
 from proton.reactor import DynamicNodeProperties
 
-from gofer.common import Thread, ThreadSingleton
+from gofer.common import Thread, ThreadSingleton, utf8
 from gofer.messaging.adapter.reliability import YEAR
 from gofer.messaging.adapter.model import Connector, BaseConnection
 
@@ -152,5 +152,5 @@ class Connection(BaseConnection):
             connection.close()
             connector = Connector.find(self.url)
             log.info('closed: %s', connector.url)
-        except Exception:
-            pass
+        except Exception, pe:
+            log.debug(utf8(pe))
