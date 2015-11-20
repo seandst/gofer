@@ -57,6 +57,7 @@ mkdir -p %{buildroot}/%{_sysconfdir}/%{name}
 mkdir -p %{buildroot}/%{_sysconfdir}/%{name}/plugins
 mkdir -p %{buildroot}/%{_sysconfdir}/%{name}/conf.d
 mkdir -p %{buildroot}/%{_sysconfdir}/init.d
+mkdir -p %{buildroot}/%{_sysconfdir}/sysconfig
 mkdir -p %{buildroot}/%{_unitdir}
 mkdir -p %{buildroot}/%{_usr}/lib/%{name}/plugins
 mkdir -p %{buildroot}/%{_usr}/share/%{name}/plugins
@@ -72,6 +73,7 @@ cp docs/man/man1/* %{buildroot}/%{_mandir}/man1
 cp usr/lib/systemd/system/* %{buildroot}/%{_unitdir}
 %else
 cp etc/init.d/%{name}d %{buildroot}/%{_sysconfdir}/init.d
+cp etc/sysconfig/%{name}d %{buildroot}/%{_sysconfdir}/sysconfig
 %endif
 
 rm -rf %{buildroot}/%{python_sitelib}/%{name}*.egg-info
@@ -91,6 +93,7 @@ rm -rf %{buildroot}
 %attr(644,root,root) %{_unitdir}/%{name}d.service
 %else
 %attr(755,root,root) %{_sysconfdir}/init.d/%{name}d
+%attr(755,root,root) %{_sysconfdir}/sysconfig/%{name}d
 %endif
 %config(noreplace) %{_sysconfdir}/%{name}/agent.conf
 %config(noreplace) %{_sysconfdir}/%{name}/plugins/builtin.conf

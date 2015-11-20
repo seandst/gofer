@@ -14,6 +14,12 @@ Gofer is packaged into RPMs for Linux.  These packages are as follows:
 Depending on system capabilities, the *gofer* package registers goferd
 with systemd or upstart service managers.
 
+python optimizations
+--------------------
+By default, gofer runs python with optimizations enabled. If you want to disable those
+optimizations, this can be done by altering the environment file for this service,
+``/etc/sysconfig/goferd``, and setting the value of PYTHONOPTIMZE to zero
+(``PYTHONOPTIMIZE=0``).
 
 Development
 ^^^^^^^^^^^
